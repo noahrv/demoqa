@@ -9,8 +9,8 @@ class DemoQA(BasePage):
         self.base_url = 'https://demoqa.com/'
         super().__init__(driver, self.base_url)
 
-        self.btn_elements = WebElement(driver, By.CSS_SELECTOR, 'div.card:nth-child(1)')
-        self.text_footer = WebElement(driver, By.CSS_SELECTOR, 'footer span')
+        self.btn_elements = WebElement(driver, 'div.card:nth-child(1)')
+        self.text_footer = WebElement(driver, 'footer span')
 
     def exist_icon(self):
         try:

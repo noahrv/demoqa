@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class WebElement:
-    def __init__(self, driver, by=By.CSS_SELECTOR, locator=None):
+    def __init__(self, driver, locator, by=By.CSS_SELECTOR):
         self.driver = driver
         self.by = by
         self.locator = locator
