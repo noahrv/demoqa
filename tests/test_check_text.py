@@ -1,5 +1,5 @@
 from pages.demoqa import DemoQA
-from selenium.webdriver.common.by import By
+from pages.elements_page import ElementsPage
 
 # import time
 #
