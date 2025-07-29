@@ -1,11 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+from pages.demoqa import DemoQA
 
-driver = webdriver.Chrome()
-driver.get('https://demoqa.com/')
-
-icon = driver.find_element(By.CSS_SELECTOR, 'header > a > img')
-if icon is None:
-    print('элемент не найден')
-else:
-    print('элемент найден')
+def test_check_icon(browser):
+    demoqa_qa_page = DemoQA(browser)
+    demoqa_qa_page.visit()
+    demoqa_qa_page.click_on_the_icon()
+    assert demoqa_qa_page.equal_url()
+    assert demoqa_qa_page.exist_icon()
