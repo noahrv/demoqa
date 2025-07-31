@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from components.components import WebElement
 from selenium.common.exceptions import NoSuchElementException
@@ -14,7 +13,15 @@ class DemoQA(BasePage):
 
     def exist_icon(self):
         try:
-            self.icon.find_element()
+            self.find_element(locator='#app > header >a')
         except NoSuchElementException:
             return False
         return True
+
+    def click_on_the_icon(self):
+        return self.find_element(locator='#app > header >a').click()
+
+    def equal_url(self):
+        if self.get_url() == self.base_url:
+            return True
+        return False
