@@ -5,7 +5,7 @@ class FormPage(BasePage):
 
 
     def __init__(self, driver):
-        self.base_url = 'https://demoga.com/automation-practice-form'
+        self.base_url = 'https://demoqa.com/automation-practice-form'
         super().__init__(driver, self.base_url)
 
         self.first_name = WebElement(driver, '#firstName')
@@ -15,4 +15,12 @@ class FormPage(BasePage):
         self.user_number = WebElement(driver, '#userNumber')
         self.btn_submit = WebElement(driver, '#submit')
         self.model_dialog = WebElement(driver, 'body > div.fade.model.show > div')
-        self.btn_close_model = WebElement(driver, '#closeLargeModal')
+        self.btn_close_modal = WebElement(driver, '#closeLargeModal')
+
+        self.hobbies = WebElement(driver, '#hobbies-checkbox-1')
+        self.current_address = WebElement(driver, '#currentAddress')
+
+        self.state = WebElement(driver, '#state')
+        self.state_input = WebElement(driver, '#react-select-3-input')
+        self.city = WebElement(driver, '#city')
+        self.city_input = WebElement(driver, '#react-select-4-input')
