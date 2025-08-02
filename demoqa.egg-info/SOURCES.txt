@@ -1,0 +1,17 @@
+setup.py
+components/__init__.py
+components/components.py
+demoqa.egg-info/PKG-INFO
+demoqa.egg-info/SOURCES.txt
+demoqa.egg-info/dependency_links.txt
+demoqa.egg-info/top_level.txt
+pages/__init__.py
+pages/accordion.py
+pages/base_page.py
+pages/demoqa.py
+pages/elements_page.py
+tests/test_check_icon_demoqa.py
+tests/test_check_text.py
+tests/test_go_to_page_elements.py
+tests/test_visible.py
+tests/test_visible_hw.py

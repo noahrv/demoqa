@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.keys import Keys
 
 class WebElement:
@@ -13,6 +13,14 @@ class WebElement:
 
     def click_force(self):
         self.driver.execute_script("arguments[0].click();", self.find_element())
+
+    def is_visible(self):
+        try:
+            return self.find_element().is_displayed()
+        except NoSuchElementException:
+            return False
+        except StaleElementReferenceException:
+            return False
 
     def find_element(self):
         return self.driver.find_element(self.get_by_type(), self.locator)
@@ -54,9 +62,12 @@ class WebElement:
             return value
         return True
 
+    def check_css(self, style, value=''):
+        return self.find_element().value_of_css_property(style) == value
+
     def scroll_to_element(self):
         self.driver.execute_script(
-            "window.scrollTo(0, document.body.scrollHeight);",
+            "arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});",
             self.find_element()
         )
 

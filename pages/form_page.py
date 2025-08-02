@@ -24,3 +24,5 @@ class FormPage(BasePage):
         self.state_input = WebElement(driver, '#react-select-3-input')
         self.city = WebElement(driver, '#city')
         self.city_input = WebElement(driver, '#react-select-4-input')
+
+        # self.btn_NCR = WebElement(driver, '//*[contains(text(), 'NCR')]', 'xpath')

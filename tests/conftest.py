@@ -7,3 +7,9 @@ def browser():
     driver.set_window_size(1000, 1000)
     yield driver
     driver.quit()
+
+@pytest.fixture
+def page():
+    driver = webdriver.Chrome()
+    yield driver
+    driver.quit()

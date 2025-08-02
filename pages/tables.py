@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from components.components import WebElement
+from selenium.webdriver.common.by import By
 
 
 class Tables(BasePage):
@@ -64,3 +65,6 @@ class Tables(BasePage):
             if text in row.text:
                 delete_buttons[i].click()
                 break
+
+    def get_headers(self):
+        return self.driver.find_elements(By.CSS_SELECTOR, ".rt-th.rt-resizable-header")
