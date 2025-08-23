@@ -1,6 +1,9 @@
 import time
 from pages.alerts import Alerts
 
+
+#ПРОВЕРОЧКА
+
 def test_alert(browser):
     alert_page = Alerts(browser)
 
