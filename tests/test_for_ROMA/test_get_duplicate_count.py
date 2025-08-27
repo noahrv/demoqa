@@ -35,8 +35,8 @@ def check_date_field(result):
     ("aaaaa", 5),
     ("0123#@+—/_:0'0;12,.21", 3),
     (" хехехе хехехе  ", 6),
-    ("aa", 2),
-    ("ab", 0),
+    ("хх", 2),
+    ("хе", 0),
     ("", 0),
     ("🙂🙂🙂", 3),
     ("🙂🙃🙂", 2),
@@ -56,7 +56,7 @@ def test_check_api_duplicate_count(input_string, expected_count):
     check_date_field(result)
 
 
-def test_empty_body():
+def test_empty_body(): # тест с пустым боди: должна быть ошибка валидации
     response = requests.post(URL, headers=HEADERS, json={})
     assert response.status_code == 422, f"Ожидался статус 422, получен {response.status_code}"
 
@@ -70,8 +70,8 @@ def test_empty_body():
     assert "type" in error and "missing" in error["type"], f"Ожидался type='missing', получено: {error.get('type')}"
 
 
-def test_wrong_field_name():
-    data = {"string": "test"}
+def test_wrong_field_name(): # тест на "мусорные" данные: должна быть 422
+    data = {"string": "test"} # тут должно быть "stroka"
     response = requests.post(URL, headers=HEADERS, json=data)
     assert response.status_code == 422, f"Ожидался статус 422, получен {response.status_code}"
 
